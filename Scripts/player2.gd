@@ -9,14 +9,22 @@ var LAST_DIR = 1
 var CHECKED_DASH_DIR = false
 const DASH_SPEED = 1200.0
 var DASH_TIME = 0.25
+var ACTIVE = Globals.ACTIVE2
 
 enum States {Move, Dash}
 var state = States.Move
+
+func _ready() -> void:
+	Globals.PLAYER2 = self
 
 func change_state(newstate):
 	state = newstate 
 
 func _physics_process(delta: float) -> void:
+	
+	if Globals.ACTIVE2 == false:
+		return
+	SwitchData()
 	DIR_X = Input.get_axis("move_left", "move_right")
 	if DIR_X:
 		LAST_DIR = DIR_X
@@ -43,8 +51,14 @@ func MoveData(delta: float):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
+		print(Globals.POSITION)
 	move_and_slide()
+
+func SwitchData():
+	if Input.is_action_just_pressed("switch"):
+		Globals.Switch(self, Globals.PLAYER1)
+		print ("Player2")
+		print(ACTIVE)
 
 func DashData(delta: float):
 	print(velocity)

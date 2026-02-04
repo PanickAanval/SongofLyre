@@ -1,6 +1,6 @@
 extends Node2D
 
-var mywin = preload("res://window.tscn")
+var mywin = preload("res://World_2.tscn")
 
 func _ready():
 	var d = mywin.instantiate()
