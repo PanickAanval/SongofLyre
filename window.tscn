@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnvwenffl130y"]
+
+[ext_resource type="Script" uid="uid://dbbi8vkrn75kk" path="res://window.gd" id="1_mvsta"]
+[ext_resource type="PackedScene" uid="uid://ce0dcipbwk0x" path="res://Scenes/player.tscn" id="3_srjdr"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hjewq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfq5s"]
+size = Vector2(1463, 54)
+
+[node name="Window" type="Window"]
+oversampling_override = 1.0
+position = Vector2i(0, -509)
+size = Vector2i(1000, 1000)
+script = ExtResource("1_mvsta")
+
+[node name="Player" parent="." instance=ExtResource("3_srjdr")]
+position = Vector2(335, 408)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(335, 467)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+position = Vector2(54.000008, -0.18)
+scale = Vector2(2000, -55.097755)
+mesh = SubResource("QuadMesh_hjewq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(148.5, -0.17999268)
+shape = SubResource("RectangleShape2D_nfq5s")
