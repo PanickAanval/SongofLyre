@@ -3,12 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://ce0dcipbwk0x" path="res://Scenes/player.tscn" id="1_c2iep"]
 [ext_resource type="Script" uid="uid://bgdjhcd0fewtg" path="res://Scripts/Window_CTRL.gd" id="1_sged0"]
 [ext_resource type="Script" uid="uid://b6hv5h534sx0n" path="res://Scripts/player2.gd" id="3_xvgx3"]
+[ext_resource type="Script" uid="uid://csj3vfoibs4c6" path="res://Scripts/switchable_CTRL.gd" id="4_2kgdh"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_c2iep"]
 size = Vector2(1000, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sged0"]
 size = Vector2(1000, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvgx3"]
+size = Vector2(183, 345)
 
 [node name="Node2D" type="Node2D" unique_id=23381746]
 script = ExtResource("1_sged0")
@@ -22,8 +26,19 @@ script = ExtResource("3_xvgx3")
 position = Vector2(565, 595)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform" unique_id=715720327]
-modulate = Color(0.5268022, 0.6693912, 0.48614472, 1)
+modulate = Color(0.78452754, 0.45572233, 0.95165735, 1)
 mesh = SubResource("QuadMesh_c2iep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1052302487]
 shape = SubResource("RectangleShape2D_sged0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1539154868]
+script = ExtResource("4_2kgdh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=579411022]
+position = Vector2(157.5, 375)
+shape = SubResource("RectangleShape2D_xvgx3")
+debug_color = Color(0.71322125, 0.36983567, 0.800366, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
