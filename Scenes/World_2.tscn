@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://bnvwenffl130y"]
 
 [ext_resource type="Script" uid="uid://dbbi8vkrn75kk" path="res://Scripts/window.gd" id="1_mvsta"]
+[ext_resource type="Texture2D" uid="uid://bb04ycfwrkyei" path="res://Assets/Environment/Floor.png" id="3_jy4hw"]
 [ext_resource type="PackedScene" uid="uid://ce0dcipbwk0x" path="res://Scenes/player.tscn" id="3_srjdr"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_kea56"]
-size = Vector2(1000, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy4hw"]
-size = Vector2(1000, 98)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1jvy"]
+size = Vector2(3839, 422)
 
 [node name="Window" type="Window" unique_id=2010533623]
 oversampling_override = 1.0
@@ -15,15 +13,17 @@ position = Vector2i(0, 36)
 size = Vector2i(1000, 1000)
 script = ExtResource("1_mvsta")
 
+[node name="Platform" type="StaticBody2D" parent="." unique_id=278008828]
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform" unique_id=1971088432]
+position = Vector2(576, 562)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_jy4hw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=900716748]
+position = Vector2(575.85, 609.7)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_x1jvy")
+
 [node name="Player" parent="." unique_id=780019454 instance=ExtResource("3_srjdr")]
 position = Vector2(335, 408)
-
-[node name="Platform" type="StaticBody2D" parent="." unique_id=168580869]
-position = Vector2(565, 595)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform" unique_id=605496904]
-modulate = Color(0.5268022, 0.6693912, 0.48614472, 1)
-mesh = SubResource("QuadMesh_kea56")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1401947132]
-shape = SubResource("RectangleShape2D_jy4hw")

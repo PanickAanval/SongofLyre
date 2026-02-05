@@ -4,12 +4,10 @@
 [ext_resource type="Script" uid="uid://bgdjhcd0fewtg" path="res://Scripts/Window_CTRL.gd" id="1_sged0"]
 [ext_resource type="Script" uid="uid://b6hv5h534sx0n" path="res://Scripts/player2.gd" id="3_xvgx3"]
 [ext_resource type="Script" uid="uid://csj3vfoibs4c6" path="res://Scripts/switchable_CTRL.gd" id="4_2kgdh"]
+[ext_resource type="Texture2D" uid="uid://bb04ycfwrkyei" path="res://Assets/Environment/Floor.png" id="5_wfblv"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_c2iep"]
-size = Vector2(1000, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sged0"]
-size = Vector2(1000, 98)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htion"]
+size = Vector2(3839, 422)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvgx3"]
 size = Vector2(183, 345)
@@ -18,19 +16,21 @@ size = Vector2(183, 345)
 script = ExtResource("1_sged0")
 metadata/_edit_horizontal_guides_ = [-13.0]
 
+[node name="Platform" type="StaticBody2D" parent="." unique_id=1049083937]
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform" unique_id=835668854]
+position = Vector2(576, 562)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_wfblv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=715252900]
+position = Vector2(575.85, 609.7)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_htion")
+
 [node name="Player" parent="." unique_id=1772712544 instance=ExtResource("1_c2iep")]
 position = Vector2(558, 451)
 script = ExtResource("3_xvgx3")
-
-[node name="Platform" type="StaticBody2D" parent="." unique_id=2090154866]
-position = Vector2(565, 595)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform" unique_id=715720327]
-modulate = Color(0.78452754, 0.45572233, 0.95165735, 1)
-mesh = SubResource("QuadMesh_c2iep")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1052302487]
-shape = SubResource("RectangleShape2D_sged0")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1539154868]
 script = ExtResource("4_2kgdh")
