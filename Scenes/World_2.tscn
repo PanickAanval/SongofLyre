@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bnvwenffl130y"]
 
 [ext_resource type="Script" uid="uid://dbbi8vkrn75kk" path="res://Scripts/window.gd" id="1_mvsta"]
-[ext_resource type="Texture2D" uid="uid://bb04ycfwrkyei" path="res://Assets/Environment/Floor.png" id="3_jy4hw"]
+[ext_resource type="Texture2D" uid="uid://pgmtqirht808" path="res://Assets/Environment/Background_test.png" id="2_x1jvy"]
+[ext_resource type="Texture2D" uid="uid://chbmew38ge81q" path="res://Assets/Environment/Foreground_test.png" id="3_apiyp"]
 [ext_resource type="PackedScene" uid="uid://ce0dcipbwk0x" path="res://Scenes/player.tscn" id="3_srjdr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1jvy"]
@@ -13,12 +14,18 @@ position = Vector2i(0, 36)
 size = Vector2i(1000, 1000)
 script = ExtResource("1_mvsta")
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=576751636]
+position = Vector2(551, 300)
+scale = Vector2(0.90234375, 0.8645833)
+texture = ExtResource("2_x1jvy")
+
 [node name="Platform" type="StaticBody2D" parent="." unique_id=278008828]
+position = Vector2(0, 58)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform" unique_id=1971088432]
-position = Vector2(576, 562)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_jy4hw")
+position = Vector2(573, 244)
+scale = Vector2(0.90234375, 0.8645833)
+texture = ExtResource("3_apiyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=900716748]
 position = Vector2(575.85, 609.7)

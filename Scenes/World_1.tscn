@@ -17,6 +17,7 @@ script = ExtResource("1_sged0")
 metadata/_edit_horizontal_guides_ = [-13.0]
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=1049083937]
+position = Vector2(0, 58)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform" unique_id=835668854]
 position = Vector2(576, 562)
@@ -33,6 +34,7 @@ position = Vector2(558, 451)
 script = ExtResource("3_xvgx3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1539154868]
+position = Vector2(6, 45)
 script = ExtResource("4_2kgdh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=579411022]

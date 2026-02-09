@@ -8,4 +8,4 @@ func _ready():
 	d.visible = true
 	d.position = Vector2(600,600)
 	d.title = "Window 2"
-	d.size = Vector2(1200,800)
+	d.size = Vector2(640,480)
