@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Song of Lyre"
 run/main_scene="uid://b3d4tcwvycyn1"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -27,6 +27,14 @@ Globals="*res://Scenes/Globals.tscn"
 
 window/subwindows/embed_subwindows=false
 window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="Song of Lyre"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/YarnSpinner-Godot/plugin.cfg")
 
 [input]
 
