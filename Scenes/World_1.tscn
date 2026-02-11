@@ -29,9 +29,38 @@ position = Vector2(575.85, 609.7)
 scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_htion")
 
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=1254968264]
+position = Vector2(1151, 58)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2" unique_id=728133046]
+position = Vector2(576, 562)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_wfblv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=169429290]
+position = Vector2(575.85, 609.7)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_htion")
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=1265363980]
+position = Vector2(-1150, 58)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform3" unique_id=949093994]
+position = Vector2(576, 562)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_wfblv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=199465616]
+position = Vector2(575.85, 609.7)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_htion")
+
 [node name="Player" parent="." unique_id=1772712544 instance=ExtResource("1_c2iep")]
-position = Vector2(558, 451)
+position = Vector2(558, 595)
 script = ExtResource("3_xvgx3")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=483005304]
+position = Vector2(0, -216)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1539154868]
 position = Vector2(6, 45)
