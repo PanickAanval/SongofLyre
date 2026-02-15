@@ -9,7 +9,7 @@ size = Vector2(70, 130)
 [node name="Player" type="CharacterBody2D" unique_id=729338921]
 script = ExtResource("1_cvnsp")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1386086518]
+[node name="Player_SPR" type="Sprite2D" parent="." unique_id=1386086518]
 position = Vector2(0, -65)
 scale = Vector2(0.625, 1)
 texture = ExtResource("1_v0iea")

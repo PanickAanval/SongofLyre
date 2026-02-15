@@ -2,15 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://ce0dcipbwk0x" path="res://Scenes/player.tscn" id="1_c2iep"]
 [ext_resource type="Script" uid="uid://bgdjhcd0fewtg" path="res://Scripts/Window_CTRL.gd" id="1_sged0"]
-[ext_resource type="Script" uid="uid://b6hv5h534sx0n" path="res://Scripts/player2.gd" id="3_xvgx3"]
 [ext_resource type="Script" uid="uid://csj3vfoibs4c6" path="res://Scripts/switchable_CTRL.gd" id="4_2kgdh"]
 [ext_resource type="Texture2D" uid="uid://bb04ycfwrkyei" path="res://Assets/Environment/Floor.png" id="5_wfblv"]
+[ext_resource type="Script" uid="uid://c11bgu0gltd4h" path="res://Scenes/pickable.gd" id="6_xdaf4"]
+[ext_resource type="Texture2D" uid="uid://cmc5rn53d6yvl" path="res://Assets/Environment/Stone.png" id="7_nkr8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htion"]
 size = Vector2(3839, 422)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xdaf4"]
+radius = 111.64677
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvgx3"]
 size = Vector2(183, 345)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebqj4"]
+size = Vector2(349, 174)
 
 [node name="Node2D" type="Node2D" unique_id=23381746]
 script = ExtResource("1_sged0")
@@ -57,10 +64,19 @@ shape = SubResource("RectangleShape2D_htion")
 
 [node name="Player" parent="." unique_id=1772712544 instance=ExtResource("1_c2iep")]
 position = Vector2(558, 595)
-script = ExtResource("3_xvgx3")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=483005304]
 position = Vector2(0, -216)
+
+[node name="Range" type="Area2D" parent="Player" unique_id=962317769]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Range" unique_id=1832702826]
+position = Vector2(3, -72)
+scale = Vector2(1.439995, 1.2799976)
+shape = SubResource("CircleShape2D_xdaf4")
+
+[node name="HandPos" type="Marker2D" parent="Player" unique_id=971911613]
+position = Vector2(63, -38)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1539154868]
 position = Vector2(6, 45)
@@ -71,5 +87,19 @@ position = Vector2(157.5, 375)
 shape = SubResource("RectangleShape2D_xvgx3")
 debug_color = Color(0.71322125, 0.36983567, 0.800366, 0.41960785)
 
+[node name="Pickable" type="CharacterBody2D" parent="." unique_id=1498793572]
+position = Vector2(921, 565)
+scale = Vector2(0.375, 0.375)
+script = ExtResource("6_xdaf4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickable" unique_id=889381797]
+texture = ExtResource("7_nkr8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable" unique_id=1529316928]
+position = Vector2(0.5, -12)
+shape = SubResource("RectangleShape2D_ebqj4")
+
+[connection signal="body_entered" from="Player/Range" to="Player" method="_on_range_body_entered"]
+[connection signal="body_exited" from="Player/Range" to="Player" method="_on_range_body_exited"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

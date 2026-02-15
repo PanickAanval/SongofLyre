@@ -11,6 +11,11 @@ const DASH_SPEED = 1200.0
 var DASH_TIME = 0.25
 var ACTIVE = Globals.ACTIVE2
 
+var IN_RANGE : bool = false
+var TARGET_OBJ : CharacterBody2D
+var HELD_OBJ : CharacterBody2D
+@onready var HAND_POS: Marker2D = $HandPos
+
 enum States {Move, Dash}
 var state = States.Move
 
@@ -21,7 +26,8 @@ func change_state(newstate):
 	state = newstate 
 
 func _physics_process(delta: float) -> void:
-	
+	pickup_object()
+	drop_object()
 	if Globals.ACTIVE2 == false:
 		return
 	SwitchData()
@@ -79,3 +85,29 @@ func DashData(delta: float):
 func _end_dash() -> void:
 	CHECKED_DASH_DIR = false
 	change_state(States.Move)
+	
+func pickup_object() -> void:
+	if IN_RANGE:
+		if Input.is_action_just_pressed("pickup") and !HELD_OBJ:
+			HELD_OBJ = TARGET_OBJ
+			HELD_OBJ.reparent(HAND_POS)
+			HELD_OBJ.position = HAND_POS.position
+
+func drop_object() -> void:
+	if Input.is_action_just_pressed("drop") and HELD_OBJ:
+		HELD_OBJ.reparent(get_parent())
+		HELD_OBJ.position = position + Vector2.RIGHT * 150
+		HELD_OBJ = null	
+
+
+
+func _on_range_body_entered(body: Node2D) -> void:
+	if body is Pickable:
+		IN_RANGE = true
+		TARGET_OBJ = body
+
+
+func _on_range_body_exited(body: Node2D) -> void:
+	if body is Pickable:
+		IN_RANGE = false
+		TARGET_OBJ = null
