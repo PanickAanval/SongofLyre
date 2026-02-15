@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bb04ycfwrkyei" path="res://Assets/Environment/Floor.png" id="5_wfblv"]
 [ext_resource type="Script" uid="uid://c11bgu0gltd4h" path="res://Scenes/pickable.gd" id="6_xdaf4"]
 [ext_resource type="Texture2D" uid="uid://cmc5rn53d6yvl" path="res://Assets/Environment/Stone.png" id="7_nkr8d"]
+[ext_resource type="Texture2D" uid="uid://dmqft7igy4ggq" path="res://icon.svg" id="7_xdaf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htion"]
 size = Vector2(3839, 422)
@@ -87,15 +88,40 @@ position = Vector2(157.5, 375)
 shape = SubResource("RectangleShape2D_xvgx3")
 debug_color = Color(0.71322125, 0.36983567, 0.800366, 0.41960785)
 
-[node name="Pickable" type="CharacterBody2D" parent="." unique_id=1498793572]
+[node name="Stone" type="CharacterBody2D" parent="." unique_id=1498793572 groups=["Stone"]]
 position = Vector2(921, 565)
 scale = Vector2(0.375, 0.375)
 script = ExtResource("6_xdaf4")
 
-[node name="Sprite2D" type="Sprite2D" parent="Pickable" unique_id=889381797]
+[node name="Sprite2D" type="Sprite2D" parent="Stone" unique_id=889381797]
 texture = ExtResource("7_nkr8d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable" unique_id=1529316928]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone" unique_id=1529316928 groups=["Stone"]]
+position = Vector2(0.5, -12)
+shape = SubResource("RectangleShape2D_ebqj4")
+
+[node name="StoneSwitch" type="CharacterBody2D" parent="." unique_id=2017959085 groups=["Stone"]]
+position = Vector2(921, 121)
+scale = Vector2(0.375, 0.375)
+script = ExtResource("6_xdaf4")
+
+[node name="Sprite2D" type="Sprite2D" parent="StoneSwitch" unique_id=124758145]
+texture = ExtResource("7_nkr8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoneSwitch" unique_id=1193770149 groups=["Stone"]]
+position = Vector2(0.5, -12)
+shape = SubResource("RectangleShape2D_ebqj4")
+
+[node name="Box" type="CharacterBody2D" parent="." unique_id=1384588171 groups=["Box"]]
+position = Vector2(316, 565)
+scale = Vector2(0.375, 0.375)
+script = ExtResource("6_xdaf4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=1005981799]
+scale = Vector2(2.3969634, 0.18624057)
+texture = ExtResource("7_xdaf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1126312387 groups=["Box"]]
 position = Vector2(0.5, -12)
 shape = SubResource("RectangleShape2D_ebqj4")
 

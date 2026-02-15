@@ -15,6 +15,7 @@ var IN_RANGE : bool = false
 var TARGET_OBJ : CharacterBody2D
 var HELD_OBJ : CharacterBody2D
 @onready var HAND_POS: Marker2D = $HandPos
+@onready var OBJ_TYPE: CharacterBody2D = $"../StoneSwitch"
 
 enum States {Move, Dash}
 var state = States.Move
@@ -63,7 +64,11 @@ func MoveData(delta: float):
 
 func SwitchData():
 	if Input.is_action_just_pressed("switch"):
-		Globals.Switch(self, Globals.PLAYER2)
+		Globals.Switch(self, Globals.PLAYER2, OBJ_TYPE)
+		if Globals.HELD2 != null:
+			print(Globals.OBJECTHELD)
+			Globals.OBJECTHELD.reparent(HAND_POS)
+			Globals.OBJECTHELD.position = HAND_POS.position
 		print ("Player1")
 		print(ACTIVE)
 
@@ -93,12 +98,20 @@ func pickup_object() -> void:
 			HELD_OBJ = TARGET_OBJ
 			HELD_OBJ.reparent(HAND_POS)
 			HELD_OBJ.position = HAND_POS.position
+			Globals.HELD1= HELD_OBJ
+			print(Globals.HELD1)
+			Globals.HOLDING1 = true
 
 func drop_object() -> void:
 	if Input.is_action_just_pressed("drop") and HELD_OBJ:
 		HELD_OBJ.reparent(get_parent())
 		HELD_OBJ.position = position + Vector2.RIGHT * 150
 		HELD_OBJ = null	
+		Globals.OBJECTHELD.reparent(get_parent())
+		Globals.OBJECTHELD.position = position + Vector2.RIGHT * 150
+		Globals.OBJECTHELD = null	
+		Globals.HOLDING1 = false
+		Globals.HELD1= null
 
 func _on_range_body_entered(body: Node2D) -> void:
 	if body is Pickable:
@@ -110,3 +123,4 @@ func _on_range_body_exited(body: Node2D) -> void:
 	if body is Pickable:
 		IN_RANGE = false
 		TARGET_OBJ = null
+		

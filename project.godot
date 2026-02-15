@@ -36,6 +36,11 @@ project/assembly_name="Song of Lyre"
 
 enabled=PackedStringArray("res://addons/YarnSpinner-Godot/plugin.cfg")
 
+[global_group]
+
+Stone="Stones you can pick up."
+Box="Boxes you can pick up."
+
 [input]
 
 move_right={
