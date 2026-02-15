@@ -106,9 +106,10 @@ func drop_object() -> void:
 		HELD_OBJ.reparent(get_parent())
 		HELD_OBJ.position = position + Vector2.RIGHT * 150
 		HELD_OBJ = null	
-		Globals.OBJECTHELD.reparent(get_parent())
-		Globals.OBJECTHELD.position = position + Vector2.RIGHT * 150
-		Globals.OBJECTHELD = null	
+		if Globals.OBJECTHELD != null:
+			Globals.OBJECTHELD.reparent(get_parent())
+			Globals.OBJECTHELD.position = position + Vector2.RIGHT * 150
+			Globals.OBJECTHELD = null	
 		Globals.HOLDING2 = false
 		Globals.HELD2 = null
 
