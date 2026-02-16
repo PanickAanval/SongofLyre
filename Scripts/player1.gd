@@ -27,7 +27,8 @@ func change_state(newstate):
 	state = newstate 
 
 func _physics_process(delta: float) -> void:
-
+	pickup_object()
+	drop_object()
 	if Globals.ACTIVE1 == false:
 		return
 	SwitchData()
@@ -39,8 +40,7 @@ func _physics_process(delta: float) -> void:
 			MoveData(delta)
 		States.Dash:
 			DashData(delta)
-	pickup_object()
-	drop_object()
+
 
 func MoveData(delta: float):
 	# Check for statechanges
