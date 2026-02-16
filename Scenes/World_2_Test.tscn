@@ -24,15 +24,25 @@ radius = 111.64677
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rqbq"]
 size = Vector2(349, 174)
 
-[sub_resource type="Gradient" id="Gradient_kgv7a"]
+[sub_resource type="Gradient" id="Gradient_qpqfp"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_r2y4a"]
+gradient = SubResource("Gradient_qpqfp")
+fill_from = Vector2(0.5693642, 0.93352604)
+fill_to = Vector2(0.632948, 0.14161849)
+
+[sub_resource type="Gradient" id="Gradient_kgv7a"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pvbq7"]
 gradient = SubResource("Gradient_kgv7a")
-fill_from = Vector2(0.48265895, 1)
-fill_to = Vector2(0.61271673, 0.21387284)
+fill_from = Vector2(0.55780345, 1)
+fill_to = Vector2(0.5549133, 0.26589596)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pvbq7"]
 polygon = PackedVector2Array(1439, -775, 1571, -771, 1568, -965, -508, -956, -496, -382, -159, -385, -157, -572, 1434, -569)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0h5a1"]
+polygon = PackedVector2Array(2797, -192, 2978, -189, 2978, -256, 3064, -258, 3069, -198, 3104, -190, 3102, 221, 3296, 221, 3295, 477, 3364, 477, 3363, 413, 3555, 417, 3552, 477, 4605, 481, 4608, 723, 4482, 725, 4487, 960, 2681, 900, 2687, 384, 2790, 388)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3rqbq"]
 polygon = PackedVector2Array(1861.6241, -853.5713, 1863.5962, -640.4163, 1830.0712, -639.4648, 1831.0573, -549.0642, 2243.2178, -549.0642, 2241.2456, -672.7702, 2303.3655, -672.7702, 2303.3655, -734.6232, 2748.065, -730.8169, 2747.0789, -852.6197, 3223.3313, -854.5228, 3227.2754, -1280.8326, 2460.1443, -1257.0431, 2243.2178, -1240.8661, 2239.2734, -1073.3873, 2090.383, -1073.3873, 2080.5227, -848.81335)
@@ -189,8 +199,19 @@ color = Color(0.87310207, 0.72164375, 0.83906907, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_r2y4a")
 
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1198753515]
+position = Vector2(4139, -864.0001)
+rotation = 1.5706872
+scale = Vector2(49.804, 64.48606)
+color = Color(0.87310207, 0.72164375, 0.83906907, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_pvbq7")
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=529903187]
 occluder = SubResource("OccluderPolygon2D_pvbq7")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="." unique_id=1738661303]
+occluder = SubResource("OccluderPolygon2D_0h5a1")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="." unique_id=801695553]
 scale = Vector2(1.0141681, 1.0508789)

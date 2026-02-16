@@ -30,6 +30,13 @@ polygon = PackedVector2Array(1439, -775, 1571, -771, 1568, -965, -508, -956, -49
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cmjwt"]
 polygon = PackedVector2Array(1861.6241, -853.5713, 1863.5962, -640.4163, 1830.0712, -639.4648, 1831.0573, -549.0642, 2243.2178, -549.0642, 2241.2456, -672.7702, 2303.3655, -672.7702, 2303.3655, -734.6232, 2748.065, -730.8169, 2747.0789, -852.6197, 3223.3313, -854.5228, 3227.2754, -1280.8326, 2460.1443, -1257.0431, 2243.2178, -1240.8661, 2239.2734, -1073.3873, 2090.383, -1073.3873, 2080.5227, -848.81335)
 
+[sub_resource type="Gradient" id="Gradient_fy3lc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p5rsl"]
+gradient = SubResource("Gradient_fy3lc")
+fill_from = Vector2(0.48265895, 1)
+fill_to = Vector2(0.61271673, 0.21387284)
+
 [node name="Window" type="Window" unique_id=2010533623]
 oversampling_override = 1.0
 position = Vector2i(0, 36)
@@ -101,6 +108,14 @@ occluder = SubResource("OccluderPolygon2D_p5rsl")
 position = Vector2(0, 293.5913)
 scale = Vector2(1.0141681, 1.0508789)
 occluder = SubResource("OccluderPolygon2D_cmjwt")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2108032227]
+position = Vector2(4515, -634.00006)
+rotation = 1.5706872
+scale = Vector2(49.804, 64.48606)
+color = Color(0.87310207, 0.72164375, 0.83906907, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_p5rsl")
 
 [connection signal="body_entered" from="Player/Range" to="Player" method="_on_range_body_entered"]
 [connection signal="body_exited" from="Player/Range" to="Player" method="_on_range_body_exited"]
