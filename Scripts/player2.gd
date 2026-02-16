@@ -15,7 +15,7 @@ var IN_RANGE : bool = false
 var TARGET_OBJ : CharacterBody2D
 var HELD_OBJ : CharacterBody2D
 @onready var HAND_POS: Marker2D = $HandPos
-@onready var OBJ_TYPE: CharacterBody2D = $"../StoneSwitch"
+@onready var OBJ_TYPE: CharacterBody2D = $"../Stone"
 
 enum States {Move, Dash}
 var state = States.Move
@@ -27,10 +27,10 @@ func change_state(newstate):
 	state = newstate 
 
 func _physics_process(delta: float) -> void:
-	pickup_object()
-	drop_object()
 	if Globals.ACTIVE2 == false:
 		return
+	pickup_object()
+	drop_object()
 	SwitchData()
 	DIR_X = Input.get_axis("move_left", "move_right")
 	if DIR_X:
@@ -64,7 +64,7 @@ func MoveData(delta: float):
 func SwitchData():
 	if Input.is_action_just_pressed("switch"):
 		Globals.Switch(self, Globals.PLAYER1, OBJ_TYPE)
-		if Globals.HELD1 != null:
+		if Globals.HELD1 != null and !HELD_OBJ:
 			print(Globals.OBJECTHELD)
 			Globals.OBJECTHELD.reparent(HAND_POS)
 			Globals.OBJECTHELD.position = HAND_POS.position

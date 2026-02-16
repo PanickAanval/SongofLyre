@@ -90,25 +90,13 @@ debug_color = Color(0.71322125, 0.36983567, 0.800366, 0.41960785)
 
 [node name="Stone" type="CharacterBody2D" parent="." unique_id=1498793572 groups=["Stone"]]
 position = Vector2(921, 565)
-scale = Vector2(0.375, 0.375)
+scale = Vector2(0.13948251, 0.13839242)
 script = ExtResource("6_xdaf4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Stone" unique_id=889381797]
 texture = ExtResource("7_nkr8d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stone" unique_id=1529316928 groups=["Stone"]]
-position = Vector2(0.5, -12)
-shape = SubResource("RectangleShape2D_ebqj4")
-
-[node name="StoneSwitch" type="CharacterBody2D" parent="." unique_id=2017959085 groups=["Stone"]]
-position = Vector2(921, 121)
-scale = Vector2(0.375, 0.375)
-script = ExtResource("6_xdaf4")
-
-[node name="Sprite2D" type="Sprite2D" parent="StoneSwitch" unique_id=124758145]
-texture = ExtResource("7_nkr8d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StoneSwitch" unique_id=1193770149 groups=["Stone"]]
 position = Vector2(0.5, -12)
 shape = SubResource("RectangleShape2D_ebqj4")
 

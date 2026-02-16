@@ -28,15 +28,9 @@ func Switch(Oldplayer, Newplayer, Group):
 	if HOLDING1:
 		print("Player 1 holding")
 		OBJECTHELD  = Group
-		if HELD1.is_in_group("Stone"):
-			OBJECTHELD  = Group
-			print(OBJECTHELD)
 	if HOLDING2:
 		print("Player 2 holding")
 		OBJECTHELD = Group
-		if HELD2.is_in_group("Stone"):
-			OBJECTHELD = Group
-			print(OBJECTHELD)
 	SWITCHABLE = false
 	get_tree().create_timer(0.1).timeout.connect(EndSwitch)
 
