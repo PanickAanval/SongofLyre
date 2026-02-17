@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d054drfkqxukn"]
+
+[ext_resource type="Script" uid="uid://c11bgu0gltd4h" path="res://Scenes/pickable.gd" id="1_42nxc"]
+[ext_resource type="Texture2D" uid="uid://dmqft7igy4ggq" path="res://icon.svg" id="2_mckbn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebqj4"]
+size = Vector2(117.33333, 32)
+
+[node name="Box" type="CharacterBody2D" unique_id=1917482143 groups=["Box"]]
+scale = Vector2(0.375, 0.375)
+script = ExtResource("1_42nxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=991998560]
+modulate = Color(0.46931684, 0.2723522, 0.7052806, 1)
+scale = Vector2(2.397, 1.041)
+texture = ExtResource("2_mckbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1853255050 groups=["Box"]]
+position = Vector2(-2.6666667, -2.666668)
+shape = SubResource("RectangleShape2D_ebqj4")
