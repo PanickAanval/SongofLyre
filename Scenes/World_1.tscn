@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://csj3vfoibs4c6" path="res://Scripts/switchable_CTRL.gd" id="4_2kgdh"]
 [ext_resource type="PackedScene" uid="uid://d054drfkqxukn" path="res://Scenes/Box.tscn" id="5_htion"]
 [ext_resource type="TileSet" uid="uid://cbydpv03mk7nm" path="res://Assets/Environment/Tileset_Low/Tileset_Low_Level.tres" id="5_wfblv"]
+[ext_resource type="PackedScene" uid="uid://bv42g323prh5f" path="res://addons/YarnSpinner-Godot/Scenes/DefaultDialogueSystem.tscn" id="6_xdaf4"]
+[ext_resource type="Resource" uid="uid://o3fb8jv6onla" path="res://Assets/Yarnspinner/FirstProject.yarnproject" id="7_nkr8d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xdaf4"]
 radius = 111.64677
@@ -228,7 +230,36 @@ range_layer_min = -100
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_nm04n")
 
+[node name="YarnSpinnerCanvasLayer" parent="." unique_id=1657635675 instance=ExtResource("6_xdaf4")]
+
+[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0"]
+yarnProject = ExtResource("7_nkr8d")
+autoStart = true
+startNode = "Start"
+
+[node name="LinePresenter" parent="YarnSpinnerCanvasLayer" index="2"]
+offset_left = 165.0
+offset_top = 275.0
+offset_right = 165.0
+offset_bottom = 275.0
+
+[node name="LineText" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" index="0"]
+offset_top = -115.0
+offset_bottom = 430.0
+
+[node name="CharacterNameText" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" index="1"]
+offset_top = -173.0
+offset_bottom = -120.0
+
+[node name="ContinueButton" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" index="2"]
+offset_left = 137.0
+offset_top = -419.0
+offset_right = 369.0
+offset_bottom = -319.0
+
 [connection signal="body_entered" from="Player/Range" to="Player" method="_on_range_body_entered"]
 [connection signal="body_exited" from="Player/Range" to="Player" method="_on_range_body_exited"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+
+[editable path="YarnSpinnerCanvasLayer"]
