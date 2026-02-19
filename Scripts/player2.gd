@@ -98,7 +98,7 @@ func pickup_object() -> void:
 func drop_object() -> void:
 	if Input.is_action_just_pressed("drop") and HELD_OBJ:
 		HELD_OBJ.reparent(get_parent())
-		HELD_OBJ.position = position + Vector2.RIGHT * 150 + Vector2.UP * 50
+		HELD_OBJ.position = position + Vector2.RIGHT * 50 + Vector2.UP * 40
 		HELD_OBJ = null	
 		Globals.HELD_OBJ_G = null
 

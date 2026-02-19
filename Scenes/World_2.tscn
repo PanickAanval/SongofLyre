@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dbbi8vkrn75kk" path="res://Scripts/window.gd" id="1_mvsta"]
 [ext_resource type="PackedScene" uid="uid://ce0dcipbwk0x" path="res://Scenes/player.tscn" id="3_srjdr"]
 [ext_resource type="TileSet" uid="uid://cbydpv03mk7nm" path="res://Assets/Environment/Tileset_Low/Tileset_Low_Level.tres" id="4_x1jvy"]
+[ext_resource type="Shader" uid="uid://b2pq8iqw0h0is" path="res://Assets/Shaders/CRT.gdshader" id="5_apiyp"]
 [ext_resource type="Script" uid="uid://b6hv5h534sx0n" path="res://Scripts/player2.gd" id="7_pwcjq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i8hr7"]
@@ -32,6 +33,10 @@ emission_box_extents = Vector3(1000, 1000, 1)
 angle_min = 1.0728835e-05
 angle_max = 1.0728835e-05
 gravity = Vector3(0, 30, 0)
+scale_min = 0.5
+scale_max = 1.5
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.039999977
 turbulence_enabled = true
 turbulence_noise_strength = 3.05
 
@@ -73,6 +78,9 @@ fill = 1
 fill_from = Vector2(0.5260116, 0.4768786)
 fill_to = Vector2(0.06936416, 0.9479769)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_apiyp"]
+shader = ExtResource("5_apiyp")
+
 [node name="Window" type="Window" unique_id=2010533623]
 oversampling_override = 1.0
 position = Vector2i(0, 36)
@@ -85,7 +93,7 @@ scale = Vector2(0.405, 0.405)
 script = ExtResource("7_pwcjq")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=375974760]
-position = Vector2(165.43211, -286.41974)
+position = Vector2(167.90125, -283.9506)
 zoom = Vector2(2.155, 2.155)
 
 [node name="Range" type="Area2D" parent="Player" unique_id=291725677]
@@ -96,7 +104,7 @@ scale = Vector2(1.439995, 1.2799976)
 shape = SubResource("CircleShape2D_i8hr7")
 
 [node name="HandPos" type="Marker2D" parent="Player" unique_id=589785744]
-position = Vector2(104.47762, -37.313446)
+position = Vector2(49.38269, -34.567917)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player" unique_id=583917663]
 occluder = SubResource("OccluderPolygon2D_fy3lc")
@@ -133,7 +141,7 @@ tile_set = ExtResource("4_x1jvy")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=2066980860]
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="ParallaxBackground" unique_id=1770996321]
-color = Color(0.6811031, 0.4969111, 0.65226495, 1)
+color = Color(0.5526014, 0.3424721, 0.44093445, 1)
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1999560565]
 motion_scale = Vector2(0, 1)
@@ -207,6 +215,16 @@ energy = 0.3
 range_layer_min = -100
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_fy3lc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=933782808]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1305054471]
+material = SubResource("ShaderMaterial_apiyp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="body_entered" from="Player/Range" to="Player" method="_on_range_body_entered"]
 [connection signal="body_exited" from="Player/Range" to="Player" method="_on_range_body_exited"]
