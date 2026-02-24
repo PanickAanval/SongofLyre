@@ -23,7 +23,7 @@ fill_to = Vector2(0.85470086, 0.1965812)
 radius = 111.64677
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_htion"]
-polygon = PackedVector2Array(-37.03711, -4.9383545, -34.56787, -125.925964, 34.56787, -125.925964, 34.56787, -7.4074707)
+polygon = PackedVector2Array(0, 2.4691772, -19.753082, -12.345642, -12.345673, -91.35803, -9.876541, -96.296265, -12.345673, -113.58026, 0, -118.51849, 12.345688, -113.58026, 12.345688, -106.17285, 7.4074097, -106.17285, 7.4074097, -98.76544, 4.938278, -93.82715, 0, -93.82715, 2.4691315, -81.481445, -2.4691315, -56.7901)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvgx3"]
 size = Vector2(183, 345)
@@ -148,6 +148,7 @@ shape = SubResource("CircleShape2D_xdaf4")
 position = Vector2(56.79027, -49.382683)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player" unique_id=2023441186]
+position = Vector2(7.4075584, -4.9382725)
 occluder = SubResource("OccluderPolygon2D_htion")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1539154868]
@@ -182,7 +183,7 @@ process_material = SubResource("ParticleProcessMaterial_ebqj4")
 color = Color(0.5526014, 0.3424721, 0.44093445, 1)
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1300457820]
-position = Vector2(0, -304)
+position = Vector2(0, -216)
 motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(3600, 0)
 
@@ -193,7 +194,7 @@ scale = Vector2(56.765625, 45.9375)
 texture = SubResource("GradientTexture2D_laef3")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=593388943]
-position = Vector2(0, -94)
+position = Vector2(0, -6)
 motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(4035.13, 0)
 
@@ -204,7 +205,7 @@ tile_map_data = PackedByteArray("AADr/wkABQABAAEAAADr/woABQABAAEAAADr/wsABQABAAE
 tile_set = ExtResource("5_wfblv")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1965646088]
-position = Vector2(0, -94)
+position = Vector2(0, -6)
 motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(5086.76, 0)
 
@@ -215,7 +216,7 @@ tile_map_data = PackedByteArray("AADf/w0ABAABAAEAAADf/w4ABAABAAEAAADf/w8ABAABAAE
 tile_set = ExtResource("5_wfblv")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1216120741]
-position = Vector2(0, -94)
+position = Vector2(0, -6)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(5022.685, 0)
 
@@ -423,4 +424,5 @@ texture = ExtResource("8_nkr8d")
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
 
+[editable path="Player"]
 [editable path="YarnSpinnerCanvasLayer"]

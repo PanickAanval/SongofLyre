@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var ANIM_PLAYER = $AnimationPlayer
+@onready var SPRITE = $Sprite2D2
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
@@ -28,6 +30,14 @@ func change_state(newstate):
 func _physics_process(delta: float) -> void:
 	if Globals.ACTIVE1 == false:
 		return
+	if velocity.length() > 0:
+		ANIM_PLAYER.play("Walk")
+		if velocity.x < 0:
+			SPRITE.flip_h = true
+		if velocity.x > 0:
+			SPRITE.flip_h = false
+	else:
+		ANIM_PLAYER.play("Idle")
 	check_object()
 	pickup_object()
 	drop_object()
