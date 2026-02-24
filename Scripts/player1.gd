@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 
-const SPEED = 400.0
-const JUMP_VELOCITY = -850.0
+const SPEED = 300.0
+const JUMP_VELOCITY = -650.0
 var DIR_X = 0
 var DASH_DIR = 0
 var LAST_DIR = 1
 var CHECKED_DASH_DIR = false
-const DASH_SPEED = 1200.0
+const DASH_SPEED = 1000.0
 var DASH_TIME = 0.25
 var ACTIVE = Globals.ACTIVE1
 
@@ -102,7 +102,7 @@ func pickup_object() -> void:
 func drop_object() -> void:
 	if Input.is_action_just_pressed("drop") and HELD_OBJ:
 		HELD_OBJ.reparent(get_parent())
-		HELD_OBJ.position = position + Vector2.RIGHT * 150
+		HELD_OBJ.position = position
 		HELD_OBJ = null	
 		Globals.HELD_OBJ_G = null
 
