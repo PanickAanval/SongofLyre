@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var ANIM_PLAYER = $AnimationPlayer
 @onready var SPRITE = $Sprite2D2
-
+@onready var PICK : Label = $Label
 const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
 var DIR_X = 0
@@ -129,11 +129,12 @@ func _on_range_body_entered(body: Node2D) -> void:
 	if body is Pickable:
 		IN_RANGE = true
 		TARGET_OBJ = body
+		PICK.visible = true
 
 
 func _on_range_body_exited(body: Node2D) -> void:
 	if body is Pickable:
 		IN_RANGE = false
 		TARGET_OBJ = null
-		
+		PICK.visible = false
 		

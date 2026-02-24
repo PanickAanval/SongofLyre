@@ -250,8 +250,13 @@ material = SubResource("ShaderMaterial_3urqn")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1793.0
+offset_top = -1261.0
+offset_right = -1793.0
+offset_bottom = -1261.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(137.17337, 6.709574)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2111658013]
 position = Vector2(907, 697)

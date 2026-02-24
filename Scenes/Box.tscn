@@ -19,3 +19,11 @@ texture = ExtResource("2_mckbn")
 position = Vector2(0, 0.5505905)
 scale = Vector2(1, 2.213309)
 shape = SubResource("RectangleShape2D_ebqj4")
+
+[node name="Label" type="Label" parent="." unique_id=1541914313]
+visible = false
+offset_left = -56.0
+offset_top = -128.0
+offset_right = 53.0
+offset_bottom = -105.0
+text = "Press F to Lift."

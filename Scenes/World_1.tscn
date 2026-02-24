@@ -151,6 +151,15 @@ position = Vector2(56.79027, -49.382683)
 position = Vector2(7.4075584, -4.9382725)
 occluder = SubResource("OccluderPolygon2D_htion")
 
+[node name="Label" type="Label" parent="Player" unique_id=318107231]
+visible = false
+offset_left = -66.66652
+offset_top = -177.7778
+offset_right = 42.33348
+offset_bottom = -154.7778
+scale = Vector2(1.3950617, 1.7901475)
+text = "Press F to Lift."
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1539154868]
 position = Vector2(85, 636)
 script = ExtResource("4_2kgdh")

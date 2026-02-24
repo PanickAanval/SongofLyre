@@ -164,6 +164,14 @@ randomness = 0.68
 visibility_rect = Rect2(-100, -100, 2000, 2000)
 process_material = SubResource("ParticleProcessMaterial_p5rsl")
 
+[node name="Label" type="Label" parent="Player" unique_id=266414295]
+offset_left = -66.66669
+offset_top = -180.24692
+offset_right = 42.333313
+offset_bottom = -157.24692
+scale = Vector2(1.3950617, 1.7901475)
+text = "Press F to Lift."
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=2066980860]
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="ParallaxBackground" unique_id=1770996321]
