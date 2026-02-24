@@ -245,7 +245,6 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_fy3lc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=933782808]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1305054471]
 material = SubResource("ShaderMaterial_apiyp")
