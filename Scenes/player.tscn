@@ -78,3 +78,5 @@ position = Vector2(0, -66)
 texture = ExtResource("2_cvnsp")
 region_enabled = true
 region_rect = Rect2(0, 0, 63, 132)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1466744284]

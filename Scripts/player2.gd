@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var SPRITE = $Sprite2D2
 @onready var PICK : Label = $Label
 const SPEED = 260.0
+var CLICK_POS = Vector2()
+var TARGET_POS = Vector2()
 const JUMP_VELOCITY = -650.0
 var DIR_X = 0
 var DASH_DIR = 0
@@ -23,6 +25,7 @@ var state = States.Move
 
 func _ready() -> void:
 	Globals.PLAYER2 = self
+	CLICK_POS = position
 
 func change_state(newstate):
 	state = newstate 
@@ -42,14 +45,27 @@ func _physics_process(delta: float) -> void:
 	pickup_object()
 	drop_object()
 	SwitchData()
-	DIR_X = Input.get_axis("move_left", "move_right")
-	if DIR_X:
-		LAST_DIR = DIR_X
-	match state:
-		States.Move:
-			MoveData(delta)
-		States.Dash:
-			DashData(delta)
+
+	if Input.is_action_just_pressed("left_click"):
+		CLICK_POS = get_global_mouse_position()
+		
+	if position.distance_to(CLICK_POS) > 3:
+			#if not is_on_floor():
+				#velocity = get_gravity() * delta
+				#print("in air")
+			#else:
+				#print("on floor")
+			TARGET_POS = (CLICK_POS - position).normalized()
+			velocity = TARGET_POS * SPEED + get_gravity()
+			move_and_slide()
+	#DIR_X = Input.get_axis("move_left", "move_right")
+	#if DIR_X:
+		#LAST_DIR = DIR_X
+	#match state:
+		#States.Move:
+			#MoveData(delta)
+		#States.Dash:
+			#DashData(delta)
 
 func MoveData(delta: float):
 	# Check for statechanges

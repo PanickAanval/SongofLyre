@@ -244,6 +244,7 @@ randomness = 0.68
 process_material = SubResource("ParticleProcessMaterial_kgv7a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=499504296]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=728718639]
 material = SubResource("ShaderMaterial_3urqn")

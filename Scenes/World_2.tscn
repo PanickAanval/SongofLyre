@@ -219,6 +219,7 @@ tile_map_data = PackedByteArray("AADg/xMAAwABAAEAAADg/xQAAwABAAEAAADg/xUAAwABAAE
 tile_set = ExtResource("4_x1jvy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=933782808]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1305054471]
 material = SubResource("ShaderMaterial_apiyp")
