@@ -1,21 +1,29 @@
 ﻿title: Start
 tags:
+position: -27,-90
 ---
-Lyre: Oh, hello!
-    -> Hi, where am I?
-        Lyre: You're in Godot!
-            -> Oh.
-                <<jump Oh>>
-            -> How did I get here?
-                <<jump Godot>>
+Lyre: I had a dream last night.
+Lyre: There was a woman.
+Lyre: Her look was stern, and wings adorned her figure.
+Lyre: She carried the feeling of the dirt between your fingernails, the feeling of the unmoving hills and the feeling of sacred routines.
+Lyre: There's no doubt about it: I know this woman well.
+Lyre: Only this time, she carries more feelings than only those of herself.
+Lyre: Something in her stature has seemed to crack. Yet she doesn't let her smile falter.
+Lyre: She shows me the mountain creeks, erroding the vast scape she works so hard to maintain.
+Lyre: Then she shows me the flowing rivers, that carry with them the unpredictable streams of water.
+Lyre: The change she is so used to face off against, she shows me them all.
+Lyre: Yet there is no fear on her face.
+Lyre: Is this not the woman I know so well after all?
 ===
 
 title: Oh
+position: -128,171
 ---
 Lyre: Yeah, fun, right?
 ===
 
 title: Godot
+position: 97,152
 ---
 Lyre: Someone read the Beginner's Guide!
 ===
