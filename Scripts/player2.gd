@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var ANIM_PLAYER = $AnimationPlayer
 @onready var SPRITE = $Sprite2D2
 @onready var PICK : Label = $Label
-const SPEED = 260.0
+const SPEED = 160.0
 var CLICK_POS = Vector2()
 var TARGET_POS = Vector2()
 const JUMP_VELOCITY = -650.0
@@ -19,6 +19,9 @@ var IN_RANGE : bool = false
 var TARGET_OBJ : CharacterBody2D
 var HELD_OBJ : CharacterBody2D
 @onready var HAND_POS: Marker2D = $HandPos
+
+const PUSH_FORCE = 50
+const BLOCK_MAX_VELOCITY = 90
 
 enum States {Move, Dash}
 var state = States.Move
@@ -57,6 +60,11 @@ func _physics_process(delta: float) -> void:
 				#print("on floor")
 			TARGET_POS = (CLICK_POS - position).normalized()
 			velocity = TARGET_POS * SPEED + get_gravity()
+			for i in get_slide_collision_count():
+				var collision = get_slide_collision(i)
+				var collision_block = collision.get_collider()
+				if collision_block.is_in_group("Box") and abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
+					collision_block.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 			move_and_slide()
 	#DIR_X = Input.get_axis("move_left", "move_right")
 	#if DIR_X:

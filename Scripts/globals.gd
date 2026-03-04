@@ -18,7 +18,7 @@ func Switch(Oldplayer, Newplayer):
 		return
 	ACTIVE1 =! ACTIVE1
 	ACTIVE2 =! ACTIVE2
-	Newplayer.position = Oldplayer.position
+	#Newplayer.position = Oldplayer.position
 	SWITCHABLE = false
 	get_tree().create_timer(0.1).timeout.connect(EndSwitch)
 

@@ -199,7 +199,6 @@ tile_map_data = PackedByteArray("AADg/xMAAwABAAEAAADg/xQAAwABAAEAAADg/xUAAwABAAE
 tile_set = ExtResource("5_wfblv")
 
 [node name="YarnSpinnerCanvasLayer" parent="." unique_id=1657635675 instance=ExtResource("6_xdaf4")]
-visible = false
 
 [node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0"]
 yarnProject = ExtResource("7_nkr8d")

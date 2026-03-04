@@ -1,9 +1,9 @@
 ﻿title: Start
 tags:
 ---
-Narrator: Oh, hello!
+Lyre: Oh, hello!
     -> Hi, where am I?
-        Narrator: You're in Godot!
+        Lyre: You're in Godot!
             -> Oh.
                 <<jump Oh>>
             -> How did I get here?
@@ -12,10 +12,10 @@ Narrator: Oh, hello!
 
 title: Oh
 ---
-Narrator: Yeah, fun, right?
+Lyre: Yeah, fun, right?
 ===
 
 title: Godot
 ---
-Narrator: Someone read the Beginner's Guide!
+Lyre: Someone read the Beginner's Guide!
 ===

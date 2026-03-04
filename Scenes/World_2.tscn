@@ -123,6 +123,9 @@ fill = 1
 fill_from = Vector2(0.5260116, 0.4768786)
 fill_to = Vector2(0.06936416, 0.9479769)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ikdn"]
+size = Vector2(41, 39)
+
 [node name="Window" type="Window" unique_id=2010533623]
 oversampling_override = 1.0
 position = Vector2i(0, 36)
@@ -430,6 +433,18 @@ energy = 0.3
 range_layer_min = -100
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_fy3lc")
+
+[node name="Box" type="RigidBody2D" parent="." unique_id=137682824 groups=["Box"]]
+position = Vector2(360, 476)
+lock_rotation = true
+
+[node name="ColorRect" type="ColorRect" parent="Box" unique_id=1327630880]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=749230017]
+position = Vector2(20.5, 20.5)
+shape = SubResource("RectangleShape2D_7ikdn")
 
 [connection signal="body_entered" from="Player/Range" to="Player" method="_on_range_body_entered"]
 [connection signal="body_exited" from="Player/Range" to="Player" method="_on_range_body_exited"]
