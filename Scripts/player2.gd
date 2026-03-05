@@ -59,7 +59,9 @@ func _physics_process(delta: float) -> void:
 			#else:
 				#print("on floor")
 			TARGET_POS = (CLICK_POS - position).normalized()
-			velocity = TARGET_POS * SPEED + get_gravity()
+			velocity = TARGET_POS * SPEED
+			if not is_on_floor():
+				velocity = TARGET_POS * SPEED + get_gravity()
 			for i in get_slide_collision_count():
 				var collision = get_slide_collision(i)
 				var collision_block = collision.get_collider()

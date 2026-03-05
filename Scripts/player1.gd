@@ -23,6 +23,7 @@ var state = States.Move
 
 func _ready() -> void:
 	Globals.PLAYER1 = self
+	Dialogic.start('Test')
 
 func change_state(newstate):
 	state = newstate 

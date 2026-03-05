@@ -110,6 +110,7 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_tnf4q")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1925805801]
+visible = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1740414104]
 motion_scale = Vector2(0, 1)
@@ -151,6 +152,7 @@ tile_set = ExtResource("1_jkm02")
 color = Color(0.6159882, 0.424119, 0.4827478, 1)
 
 [node name="Level_Foreground" type="Node2D" parent="." unique_id=457886051]
+visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Level_Foreground" unique_id=343001481]
 texture_filter = 1
@@ -220,9 +222,11 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_r2y4a")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1665007661]
+visible = false
 occluder = SubResource("OccluderPolygon2D_jkm02")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="." unique_id=424482433]
+visible = false
 occluder = SubResource("OccluderPolygon2D_kirtj")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=808927284]
@@ -268,6 +272,10 @@ position = Vector2(137, 360)
 rotation = 0.9081559
 shape = SubResource("RectangleShape2D_gk2ts")
 debug_color = Color(0.71322125, 0.36983567, 0.800366, 0.41960785)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=720192534]
+tile_map_data = PackedByteArray("AAARABAAAQACAAIAAAARAA8AAQACAAEAAAARAA4AAQACAAEAAAARAA0AAQACAAAAAAAQABAAAQABAAIAAAAQAA8AAQABAAEAAAAQAA4AAQABAAEAAAAQAA0AAQABAAAAAAAPABAAAQABAAIAAAAPAA8AAQABAAEAAAAPAA4AAQABAAEAAAAPAA0AAQABAAAAAAAOABAAAQABAAIAAAAOAA8AAQABAAEAAAAOAA4AAQABAAEAAAAOAA0AAQABAAAAAAANABAAAQABAAIAAAANAA8AAQABAAEAAAANAA4AAQABAAEAAAANAA0AAQABAAAAAAAMABAAAQABAAIAAAAMAA8AAQABAAEAAAAMAA4AAQABAAEAAAAMAA0AAQABAAAAAAALABAAAQABAAIAAAALAA8AAQABAAEAAAALAA4AAQABAAEAAAALAA0AAQABAAAAAAAKABAAAQABAAIAAAAKAA8AAQABAAEAAAAKAA4AAQABAAEAAAAKAA0AAQABAAAAAAAJABAAAQABAAIAAAAJAA8AAQABAAEAAAAJAA4AAQABAAEAAAAJAA0AAQABAAAAAAAIABAAAQABAAIAAAAIAA8AAQABAAEAAAAIAA4AAQABAAEAAAAIAA0AAQABAAAAAAAHABAAAQABAAIAAAAHAA8AAQABAAEAAAAHAA4AAQABAAEAAAAHAA0AAQABAAAAAAAGABAAAQABAAIAAAAGAA8AAQABAAEAAAAGAA4AAQABAAEAAAAGAA0AAQABAAAAAAAFABAAAQAAAAIAAAAFAA8AAQAAAAEAAAAFAA4AAQAAAAEAAAAFAA0AAQAAAAAAAAARAAwAAQAEAAAAAAASAAwAAQAHAAAAAAA=")
+tile_set = ExtResource("1_jkm02")
 
 [connection signal="body_entered" from="Player/Range" to="Player" method="_on_range_body_entered"]
 [connection signal="body_exited" from="Player/Range" to="Player" method="_on_range_body_exited"]
